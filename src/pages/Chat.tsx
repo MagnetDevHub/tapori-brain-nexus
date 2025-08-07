@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { MessageSquare } from 'lucide-react';
 import { useSessionStore } from '@/store/sessions';
 import { chatAPI } from '@/services/api';
 import { ChatSidebar } from '@/components/chat/Sidebar';
 import { MessageList } from '@/components/chat/MessageList';
 import { MessageComposer } from '@/components/chat/MessageComposer';
 import { TaporiBrainLogo } from '@/components/ui/TaporiBrainLogo';
+import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
 export default function Chat() {
@@ -106,12 +108,14 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] w-full">
-      {/* Sidebar */}
-      <ChatSidebar />
+    <div className="flex flex-col sm:flex-row h-[calc(100vh-4rem)] w-full">
+      {/* Sidebar - Hidden on mobile, shown on larger screens */}
+      <div className="hidden sm:block">
+        <ChatSidebar />
+      </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-w-0">
         {currentSession ? (
           <>
             {/* Messages */}
@@ -129,14 +133,14 @@ export default function Chat() {
           </>
         ) : (
           /* Empty State */
-          <div className="flex-1 flex items-center justify-center">
-            <div className="text-center space-y-4">
+          <div className="flex-1 flex items-center justify-center p-4">
+            <div className="text-center space-y-4 max-w-md">
               <TaporiBrainLogo size="xl" />
               <div>
-                <h2 className="text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                   Welcome to TaporiBrain
                 </h2>
-                <p className="text-muted-foreground max-w-md mx-auto">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   Your advanced AGI assistant is ready to help. Start a conversation 
                   by creating a new chat session.
                 </p>
@@ -147,6 +151,19 @@ export default function Chat() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Mobile Sidebar Toggle */}
+      <div className="sm:hidden fixed bottom-4 left-4 z-50">
+        <Button
+          size="sm"
+          className="btn-saffron w-12 h-12 rounded-full shadow-lg"
+          onClick={() => {
+            console.log('Toggle mobile sidebar');
+          }}
+        >
+          <MessageSquare size={20} />
+        </Button>
       </div>
     </div>
   );

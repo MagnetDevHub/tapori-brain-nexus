@@ -144,12 +144,12 @@ export function MessageComposer({
     <div className="border-t border-border/50 bg-background/95 backdrop-blur-sm">
       {/* Attachments Preview */}
       {attachments.length > 0 && (
-        <div className="p-3 border-b border-border/50">
+        <div className="p-3 sm:p-4 border-b border-border/50">
           <div className="flex flex-wrap gap-2">
             {attachments.map((attachment, index) => (
               <div key={index} className="relative group">
                 {attachment.type === 'image' && attachment.preview ? (
-                  <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-border">
+                  <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border border-border">
                     <img 
                       src={attachment.preview} 
                       alt={attachment.file.name}
@@ -158,7 +158,7 @@ export function MessageComposer({
                     <Button
                       size="sm"
                       variant="destructive"
-                      className="absolute -top-1 -right-1 w-5 h-5 p-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 p-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity text-xs"
                       onClick={() => removeAttachment(index)}
                     >
                       ×
@@ -167,14 +167,16 @@ export function MessageComposer({
                 ) : (
                   <Badge 
                     variant="secondary" 
-                    className="pr-6 relative group-hover:bg-destructive/10"
+                    className="pr-6 relative group-hover:bg-destructive/10 text-xs"
                   >
-                    <FileIcon size={12} className="mr-1" />
-                    {attachment.file.name}
+                    <FileIcon size={10} className="mr-1" />
+                    <span className="max-w-20 sm:max-w-32 truncate">
+                      {attachment.file.name}
+                    </span>
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="absolute -top-1 -right-1 w-5 h-5 p-0 rounded-full text-destructive opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 p-0 rounded-full text-destructive opacity-0 group-hover:opacity-100 transition-opacity text-xs"
                       onClick={() => removeAttachment(index)}
                     >
                       ×
@@ -188,28 +190,28 @@ export function MessageComposer({
       )}
 
       {/* Main Input Area */}
-      <div className="p-4">
-        <div className="flex items-end gap-2">
+      <div className="p-3 sm:p-4">
+        <div className="flex items-end gap-2 sm:gap-3">
           {/* File Upload */}
           <Button
             variant="ghost"
             size="sm"
-            className="flex-shrink-0"
+            className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 p-0 hover-lift"
             onClick={() => fileInputRef.current?.click()}
             disabled={disabled}
           >
-            <Paperclip size={16} />
+            <Paperclip size={14} className="sm:w-4 sm:h-4" />
           </Button>
 
           {/* Text Input */}
-          <div className="flex-1 relative">
+          <div className="flex-1 relative min-w-0">
             <Textarea
               ref={textareaRef}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder="Type your message... (Enter to send, Shift+Enter for new line)"
-              className="min-h-[44px] max-h-32 resize-none pr-12 glass"
+              placeholder="Type your message..."
+              className="min-h-[40px] sm:min-h-[44px] max-h-32 resize-none glass text-sm sm:text-base px-3 py-2 sm:px-4 sm:py-3"
               disabled={disabled}
             />
           </div>
@@ -219,37 +221,44 @@ export function MessageComposer({
             variant="ghost"
             size="sm"
             className={cn(
-              "flex-shrink-0 transition-all duration-200",
-              isRecording && "text-destructive animate-pulse"
+              "flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 p-0 transition-all duration-200 hover-lift",
+              isRecording && "text-destructive animate-pulse bg-destructive/10"
             )}
             onMouseDown={startRecording}
             onMouseUp={stopRecording}
             onMouseLeave={stopRecording}
+            onTouchStart={startRecording}
+            onTouchEnd={stopRecording}
             disabled={disabled}
           >
-            {isRecording ? <MicOff size={16} /> : <Mic size={16} />}
+            {isRecording ? <MicOff size={14} className="sm:w-4 sm:h-4" /> : <Mic size={14} className="sm:w-4 sm:h-4" />}
           </Button>
 
           {/* Send Button */}
           <Button
             className={cn(
-              "flex-shrink-0 transition-all duration-200",
+              "flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 p-0 transition-all duration-200 hover-lift",
               canSend ? "btn-saffron" : "btn-glass"
             )}
             size="sm"
             onClick={handleSend}
             disabled={!canSend}
           >
-            <Send size={16} />
+            <Send size={14} className="sm:w-4 sm:h-4" />
           </Button>
         </div>
 
         {isRecording && (
-          <div className="mt-2 text-sm text-destructive flex items-center gap-2">
+          <div className="mt-2 text-xs sm:text-sm text-destructive flex items-center gap-2">
             <div className="w-2 h-2 bg-destructive rounded-full animate-pulse" />
-            Recording... (Release to send)
+            <span className="hidden sm:inline">Recording... (Release to send)</span>
+            <span className="sm:hidden">Recording...</span>
           </div>
         )}
+        
+        <div className="mt-1 text-xs text-muted-foreground hidden sm:block">
+          Enter to send, Shift+Enter for new line
+        </div>
       </div>
 
       {/* Hidden File Input */}

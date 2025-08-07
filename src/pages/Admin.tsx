@@ -128,9 +128,9 @@ export default function Admin() {
             <Brain size={16} className="text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{stats?.model_info.name}</div>
+            <div className="text-2xl font-bold">{stats?.model_info?.name || 'N/A'}</div>
             <p className="text-xs text-muted-foreground">
-              {stats?.model_info.version}
+              {stats?.model_info?.version || 'Unknown version'}
             </p>
           </CardContent>
         </Card>
@@ -142,7 +142,7 @@ export default function Admin() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-success">
-              {stats?.active_sessions}
+              {stats?.active_sessions || 0}
             </div>
             <p className="text-xs text-muted-foreground">Connected users</p>
           </CardContent>

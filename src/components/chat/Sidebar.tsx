@@ -55,15 +55,15 @@ export function ChatSidebar() {
   };
 
   return (
-    <div className="w-80 sidebar-glass flex flex-col">
+    <div className="w-full sm:w-80 sidebar-glass flex flex-col">
       {/* Header */}
-      <div className="p-4 border-b border-border/50">
+      <div className="p-3 sm:p-4 border-b border-border/50">
         <Button
           onClick={handleCreateSession}
-          className="w-full btn-saffron flex items-center gap-2"
+          className="w-full btn-saffron flex items-center gap-2 text-sm sm:text-base"
           size="sm"
         >
-          <Plus size={16} />
+          <Plus size={14} className="sm:w-4 sm:h-4" />
           New Chat
         </Button>
       </div>
@@ -74,7 +74,7 @@ export function ChatSidebar() {
           <div
             key={session.id}
             className={cn(
-              "group relative rounded-lg p-3 cursor-pointer transition-all duration-200",
+              "group relative rounded-lg p-2 sm:p-3 cursor-pointer transition-all duration-200",
               "hover:bg-accent/50 hover-lift",
               currentSessionId === session.id 
                 ? "bg-accent border border-primary/20 shadow-md" 
@@ -83,7 +83,7 @@ export function ChatSidebar() {
             onClick={() => setCurrentSession(session.id)}
           >
             <div className="flex items-center gap-2">
-              <MessageSquare size={16} className="text-muted-foreground flex-shrink-0" />
+              <MessageSquare size={14} className="text-muted-foreground flex-shrink-0 sm:w-4 sm:h-4" />
               
               {editingId === session.id ? (
                 <Input
@@ -91,12 +91,12 @@ export function ChatSidebar() {
                   onChange={(e) => setEditTitle(e.target.value)}
                   onKeyDown={handleKeyPress}
                   onBlur={handleSaveRename}
-                  className="h-6 px-1 text-sm bg-transparent border-primary/50"
+                  className="h-5 sm:h-6 px-1 text-xs sm:text-sm bg-transparent border-primary/50"
                   autoFocus
                 />
               ) : (
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate">
+                  <p className="text-xs sm:text-sm font-medium truncate">
                     {session.title}
                   </p>
                   <p className="text-xs text-muted-foreground">
@@ -110,9 +110,9 @@ export function ChatSidebar() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1 h-6 w-6"
+                    className="opacity-0 group-hover:opacity-100 transition-opacity p-1 h-5 w-5 sm:h-6 sm:w-6"
                   >
-                    <MoreHorizontal size={12} />
+                    <MoreHorizontal size={10} className="sm:w-3 sm:h-3" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="glass">
@@ -121,9 +121,9 @@ export function ChatSidebar() {
                       e.stopPropagation();
                       handleRename(session.id, session.title);
                     }}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 text-xs sm:text-sm"
                   >
-                    <Edit2 size={14} />
+                    <Edit2 size={12} className="sm:w-3.5 sm:h-3.5" />
                     Rename
                   </DropdownMenuItem>
                   <DropdownMenuItem
@@ -131,9 +131,9 @@ export function ChatSidebar() {
                       e.stopPropagation();
                       deleteSession(session.id);
                     }}
-                    className="flex items-center gap-2 text-destructive"
+                    className="flex items-center gap-2 text-destructive text-xs sm:text-sm"
                   >
-                    <Trash2 size={14} />
+                    <Trash2 size={12} className="sm:w-3.5 sm:h-3.5" />
                     Delete
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -143,9 +143,9 @@ export function ChatSidebar() {
         ))}
 
         {sessions.length === 0 && (
-          <div className="text-center py-8 text-muted-foreground">
-            <MessageSquare size={32} className="mx-auto mb-2 opacity-50" />
-            <p className="text-sm">No chat sessions yet</p>
+          <div className="text-center py-6 sm:py-8 text-muted-foreground">
+            <MessageSquare size={24} className="mx-auto mb-2 opacity-50 sm:w-8 sm:h-8" />
+            <p className="text-xs sm:text-sm">No chat sessions yet</p>
             <p className="text-xs">Create your first chat to get started</p>
           </div>
         )}

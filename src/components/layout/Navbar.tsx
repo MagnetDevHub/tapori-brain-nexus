@@ -32,8 +32,8 @@ export function Navbar() {
 
   return (
     <nav className="glass-card border-b border-border/50 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="hover-lift">
@@ -42,7 +42,7 @@ export function Navbar() {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {navigation.map((item) => {
               const IconComponent = item.icon;
               const isActive = location.pathname === item.href;
@@ -52,15 +52,15 @@ export function Navbar() {
                   key={item.name}
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                    "flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200",
                     "hover:bg-accent/50 hover-lift",
                     isActive 
                       ? "bg-primary/10 text-primary border border-primary/20" 
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  <IconComponent size={16} />
-                  {item.name}
+                  <IconComponent size={14} className="sm:w-4 sm:h-4" />
+                  <span className="hidden sm:inline">{item.name}</span>
                 </Link>
               );
             })}
@@ -68,22 +68,22 @@ export function Navbar() {
             {/* Theme Toggle */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="btn-glass">
-                  <ThemeIcon size={16} />
+                <Button variant="ghost" size="sm" className="btn-glass w-8 h-8 sm:w-9 sm:h-9 p-0">
+                  <ThemeIcon size={14} className="sm:w-4 sm:h-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="glass">
                 <DropdownMenuItem onClick={() => setTheme('light')}>
-                  <Sun size={16} className="mr-2" />
+                  <Sun size={14} className="mr-2 sm:w-4 sm:h-4" />
                   Light
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme('dark')}>
-                  <Moon size={16} className="mr-2" />
+                  <Moon size={14} className="mr-2 sm:w-4 sm:h-4" />
                   Dark
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => setTheme('system')}>
-                  <Monitor size={16} className="mr-2" />
+                  <Monitor size={14} className="mr-2 sm:w-4 sm:h-4" />
                   System
                 </DropdownMenuItem>
               </DropdownMenuContent>
