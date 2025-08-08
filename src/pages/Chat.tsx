@@ -108,7 +108,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row h-[calc(100vh-4rem)] w-full">
+    <div className="flex flex-col sm:flex-row min-h-screen w-full">
       {/* Sidebar - Hidden on mobile, shown on larger screens */}
       <div className="hidden sm:block">
         <ChatSidebar />

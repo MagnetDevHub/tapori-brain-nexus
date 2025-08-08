@@ -130,16 +130,16 @@ export default function Roadmap() {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-8">
+    <div className="container mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8 min-h-screen">
       {/* Header */}
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-success to-navy bg-clip-text text-transparent">
+        <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary via-success to-navy bg-clip-text text-transparent">
           TaporiBrain Roadmap
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
           Explore our journey of building the most advanced AGI interface in India
         </p>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
           <Button asChild className="btn-saffron">
             <Link to="/">
               <MessageSquare size={16} className="mr-2" />
@@ -172,12 +172,12 @@ export default function Roadmap() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {section.features.map((feature, index) => (
                   <Card key={index} className="glass-card hover-lift">
                     <CardHeader className="pb-3">
                       <div className="flex items-start justify-between">
-                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                        <CardTitle className="text-base sm:text-lg">{feature.title}</CardTitle>
                         <Badge 
                           className={statusColors[feature.status as keyof typeof statusColors]}
                           variant="secondary"
@@ -187,7 +187,7 @@ export default function Roadmap() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="leading-relaxed">
+                      <CardDescription className="leading-relaxed text-xs sm:text-sm">
                         {feature.description}
                       </CardDescription>
                     </CardContent>

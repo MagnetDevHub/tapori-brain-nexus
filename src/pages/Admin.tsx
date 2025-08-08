@@ -97,7 +97,7 @@ export default function Admin() {
   }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6 min-h-screen">
       <div className="space-y-2">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-success bg-clip-text text-transparent">
           Admin Dashboard
@@ -108,7 +108,7 @@ export default function Admin() {
       </div>
 
       {/* System Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <Card className="glass-card hover-lift">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Environment</CardTitle>
@@ -164,7 +164,7 @@ export default function Admin() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Configuration */}
         <Card className="glass-card">
           <CardHeader>
