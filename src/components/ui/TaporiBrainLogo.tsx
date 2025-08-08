@@ -1,42 +1,46 @@
-import { Brain, Sparkles } from 'lucide-react';
+import { Brain } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface TaporiBrainLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
-  showText?: boolean;
   className?: string;
 }
 
-const sizeMap = {
-  sm: { icon: 16, text: 'text-sm' },
-  md: { icon: 24, text: 'text-lg' },
-  lg: { icon: 32, text: 'text-xl' },
-  xl: { icon: 48, text: 'text-2xl' },
-};
+export function TaporiBrainLogo({ size = 'md', className }: TaporiBrainLogoProps) {
+  const sizes = {
+    sm: 'text-lg',
+    md: 'text-xl',
+    lg: 'text-2xl',
+    xl: 'text-4xl',
+  };
 
-export function TaporiBrainLogo({ 
-  size = 'md', 
-  showText = true, 
-  className = '' 
-}: TaporiBrainLogoProps) {
-  const { icon, text } = sizeMap[size];
+  const iconSizes = {
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 32,
+  };
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
+    <div className={cn("flex items-center gap-2", className)}>
       <div className="relative">
         <Brain 
-          size={icon} 
-          className="text-primary animate-glow-pulse" 
+          size={iconSizes[size]} 
+          className="text-primary animate-pulse"
         />
-        <Sparkles 
-          size={icon * 0.6} 
-          className="absolute -top-1 -right-1 text-success animate-pulse" 
-        />
+        <div className="absolute inset-0 animate-ping opacity-30">
+          <Brain 
+            size={iconSizes[size]} 
+            className="text-primary/50"
+          />
+        </div>
       </div>
-      {showText && (
-        <span className={`font-bold bg-gradient-to-r from-primary to-success bg-clip-text text-transparent ${text}`}>
-          TaporiBrain
-        </span>
-      )}
+      <span className={cn(
+        "font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+        sizes[size]
+      )}>
+        TaporiBrain
+      </span>
     </div>
   );
 }

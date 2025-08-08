@@ -60,10 +60,10 @@ export function ChatSidebar() {
       <div className="p-3 sm:p-4 border-b border-border/50">
         <Button
           onClick={handleCreateSession}
-          className="w-full btn-saffron flex items-center gap-2 text-sm sm:text-base"
+          className="w-full btn-primary flex items-center gap-2"
           size="sm"
         >
-          <Plus size={14} className="sm:w-4 sm:h-4" />
+          <Plus size={16} />
           New Chat
         </Button>
       </div>

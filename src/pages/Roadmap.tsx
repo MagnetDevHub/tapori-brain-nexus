@@ -140,7 +140,7 @@ export default function Roadmap() {
           Explore our journey of building the most advanced AGI interface in India
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-          <Button asChild className="btn-saffron">
+          <Button asChild className="btn-primary">
             <Link to="/">
               <MessageSquare size={16} className="mr-2" />
               Try Chat
@@ -208,7 +208,7 @@ export default function Roadmap() {
             and build the AGI interface that India needs.
           </p>
           <div className="flex justify-center gap-4">
-            <Button className="btn-green">
+            <Button className="btn-success">
               Share Feedback
             </Button>
             <Button variant="outline" className="btn-glass">

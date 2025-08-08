@@ -8,132 +8,111 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* TaporiBrain Design System - Indian Flag Colors */
-    --background: 0 0% 100%;
-    --foreground: 240 100% 9%;
+    /* Modern Kiro-inspired Design System */
+    --background: 220 17% 7%;
+    --foreground: 210 40% 98%;
     
-    /* Saffron - Primary Brand Color */
-    --primary: 32 100% 60%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 32 100% 70%;
+    /* Modern Purple/Violet Brand Colors */
+    --primary: 262 100% 70%;
+    --primary-foreground: 220 17% 7%;
+    --primary-glow: 262 100% 80%;
     
-    /* Green - Success & Active States */
-    --success: 120 100% 25%;
-    --success-foreground: 0 0% 98%;
-    --success-glow: 120 100% 35%;
+    /* Accent Colors */
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 262 83% 68%;
     
-    /* Navy - Secondary Brand Color */
-    --navy: 240 100% 25%;
-    --navy-foreground: 0 0% 98%;
-    --navy-glow: 240 100% 35%;
-
+    /* Success & Status Colors */
+    --success: 158 64% 52%;
+    --success-foreground: 220 17% 7%;
+    --success-glow: 158 64% 62%;
+    
+    /* Secondary Colors */
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
+    
     /* UI Colors */
-    --card: 0 0% 100%;
-    --card-foreground: 240 100% 9%;
-    --card-glass: 0 0% 100% / 0.8;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: 220 20% 10% / 0.8;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 100% 9%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 40% 98%;
     
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 240 100% 9%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
     
-    --muted: 0 0% 96%;
-    --muted-foreground: 240 5% 46%;
-    
-    --accent: 32 100% 96%;
-    --accent-foreground: 240 100% 9%;
-    
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
     
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 32 100% 60%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 262 100% 70%;
     
     --radius: 0.75rem;
     
-    /* Glass Effect Variables */
-    --glass-bg: 255 255 255 / 0.1;
-    --glass-border: 255 255 255 / 0.2;
-    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    /* Modern Glass Effect */
+    --glass-bg: 220 20% 10% / 0.7;
+    --glass-border: 220 40% 40% / 0.2;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     
-    /* Gradients */
-    --gradient-saffron: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-green: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-glow)));
-    --gradient-navy: linear-gradient(135deg, hsl(var(--navy)), hsl(var(--navy-glow)));
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    /* Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-glow)));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    --gradient-border: linear-gradient(135deg, hsl(var(--border)), transparent);
     
-    /* Animations */
+    /* Smooth Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-out;
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.12);
-    --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.16);
-    --shadow-glow: 0 0 24px rgba(255, 153, 51, 0.3);
+    /* Modern Shadows */
+    --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 24px hsl(var(--primary) / 0.4);
   }
 
   .dark {
-    /* Dark Mode - TaporiBrain */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Dark theme is default - same as root */
+    --background: 220 17% 7%;
+    --foreground: 210 40% 98%;
     
-    /* Saffron - Adjusted for dark mode */
-    --primary: 32 100% 65%;
-    --primary-foreground: 240 10% 3.9%;
-    --primary-glow: 32 100% 75%;
+    --primary: 262 100% 70%;
+    --primary-foreground: 220 17% 7%;
+    --primary-glow: 262 100% 80%;
     
-    /* Green - Adjusted for dark mode */
-    --success: 120 100% 30%;
-    --success-foreground: 0 0% 98%;
-    --success-glow: 120 100% 40%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 262 83% 68%;
     
-    /* Navy - Adjusted for dark mode */
-    --navy: 240 100% 30%;
-    --navy-foreground: 0 0% 98%;
-    --navy-glow: 240 100% 40%;
-
-    /* UI Colors Dark */
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --card-glass: 240 10% 3.9% / 0.8;
+    --success: 158 64% 52%;
+    --success-foreground: 220 17% 7%;
+    --success-glow: 158 64% 62%;
     
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: 220 20% 10% / 0.8;
     
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 40% 98%;
     
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
     
-    --accent: 240 4% 16%;
-    --accent-foreground: 0 0% 98%;
+    --muted: 215 25% 27%;
+    --muted-foreground: 215 20% 65%;
     
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
     
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 32 100% 65%;
-    
-    /* Glass Effect Variables Dark */
-    --glass-bg: 255 255 255 / 0.05;
-    --glass-border: 255 255 255 / 0.1;
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
-    /* Shadows Dark */
-    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.4);
-    --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 24px rgba(255, 153, 51, 0.4);
+    --glass-bg: 220 20% 10% / 0.7;
+    --glass-border: 220 40% 40% / 0.2;
   }
 }
 
 @layer components {
-  /* Glass Morphism Effects */
+  /* Modern Glass Morphism */
   .glass {
     @apply backdrop-blur-xl border;
     background: rgba(var(--glass-bg));
@@ -142,42 +121,42 @@ All colors MUST be HSL.
   }
   
   .glass-card {
-    @apply glass rounded-lg p-6;
+    @apply glass rounded-xl p-6;
   }
   
-  /* Premium Button Variants */
-  .btn-saffron {
-    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
-    @apply shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300;
-    @apply border-0 font-medium;
+  /* Modern Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300;
+    @apply border-0 font-medium rounded-lg;
   }
   
-  .btn-green {
+  .btn-success {
     @apply bg-gradient-to-r from-success to-success-glow text-success-foreground;
-    @apply shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300;
-    @apply border-0 font-medium;
-  }
-  
-  .btn-navy {
-    @apply bg-gradient-to-r from-navy to-navy-glow text-navy-foreground;
-    @apply shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300;
-    @apply border-0 font-medium;
+    @apply shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300;
+    @apply border-0 font-medium rounded-lg;
   }
   
   .btn-glass {
-    @apply glass text-foreground hover:bg-white/10 dark:hover:bg-white/5;
-    @apply transition-all duration-300 hover:scale-105;
+    @apply glass text-foreground hover:bg-white/5;
+    @apply transition-all duration-300 hover:scale-[1.02] rounded-lg;
+  }
+  
+  .btn-outline {
+    @apply border border-border bg-transparent text-foreground;
+    @apply hover:bg-accent/10 hover:border-accent transition-all duration-300;
+    @apply rounded-lg font-medium;
   }
   
   /* Chat Message Styles */
   .message-user {
-    @apply ml-12 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
-    @apply rounded-2xl rounded-br-md p-4 shadow-md;
+    @apply ml-auto max-w-[80%] bg-gradient-to-r from-primary to-accent text-primary-foreground;
+    @apply rounded-2xl rounded-br-sm p-4 shadow-lg;
   }
   
   .message-assistant {
-    @apply mr-12 glass text-foreground;
-    @apply rounded-2xl rounded-bl-md p-4;
+    @apply mr-auto max-w-[80%] glass text-foreground;
+    @apply rounded-2xl rounded-bl-sm p-4;
   }
   
   /* Sidebar Styles */
@@ -186,15 +165,26 @@ All colors MUST be HSL.
     @apply backdrop-blur-xl;
   }
   
+  /* Modern Input Styles */
+  .input-modern {
+    @apply glass rounded-lg border-border/30 bg-background/50;
+    @apply focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-200;
+  }
+  
   /* Loading Animation */
-  .pulse-glow {
-    @apply animate-pulse;
-    box-shadow: 0 0 20px rgba(255, 153, 51, 0.5);
+  .loading-dots {
+    @apply flex gap-1;
+  }
+  
+  .loading-dots div {
+    @apply w-2 h-2 bg-primary rounded-full animate-pulse;
+    animation-delay: calc(var(--i) * 0.2s);
   }
   
   /* Hover Effects */
   .hover-lift {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
   }
   
   .hover-glow {
@@ -203,6 +193,11 @@ All colors MUST be HSL.
   
   .hover-glow:hover {
     box-shadow: var(--shadow-glow);
+  }
+  
+  /* Navigation Active State */
+  .nav-active {
+    @apply bg-primary/10 text-primary border border-primary/20;
   }
 }
 
@@ -214,6 +209,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
   }
   
   /* Scrollbar Styling */

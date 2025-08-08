@@ -283,7 +283,7 @@ export default function Admin() {
         <CardContent>
           <div className="flex gap-4">
             <Button 
-              className="btn-saffron"
+              className="btn-primary"
               onClick={loadData}
             >
               Refresh Data

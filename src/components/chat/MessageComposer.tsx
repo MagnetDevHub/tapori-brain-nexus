@@ -237,14 +237,14 @@ export function MessageComposer({
           {/* Send Button */}
           <Button
             className={cn(
-              "flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 p-0 transition-all duration-200 hover-lift",
-              canSend ? "btn-saffron" : "btn-glass"
+              "flex-shrink-0 w-9 h-9 p-0 transition-all duration-200 hover-lift",
+              canSend ? "btn-primary" : "btn-glass"
             )}
             size="sm"
             onClick={handleSend}
             disabled={!canSend}
           >
-            <Send size={14} className="sm:w-4 sm:h-4" />
+            <Send size={16} />
           </Button>
         </div>
 
